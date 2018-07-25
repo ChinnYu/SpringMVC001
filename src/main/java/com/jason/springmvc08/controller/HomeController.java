@@ -16,6 +16,6 @@ public class HomeController {
     @RequestMapping(path = "/index") //請求映射
     public String index(Model model){
         model.addAttribute("message","Hello SpringMVC");
-        return "index";
+        return "home/index";
     }
 }

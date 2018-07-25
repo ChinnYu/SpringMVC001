@@ -22,14 +22,31 @@
 </h2>
 <table width="100%" border="1">
     <tr>
-        <th>編號</th><th>姓名</th><th>地址</th><th>電話</th>
+        <th>編號</th><th>姓名</th><th>地址</th><th>電話</th><th>操作</th>
     </tr>
 
     <c:forEach items="${list}" var="user">
         <tr>
-            <td>${user.id}</td><td>${user.name}</td><td>${user.address}</td><td>${user.phone}</td>
+            <td>${user.id}</td>
+            <td>${user.name}</td>
+            <td>${user.address}</td>
+            <td>${user.phone}</td>
+            <td><a href="delete/${user.id}" class="del">刪除</a> </td>
         </tr>
     </c:forEach>
+
 </table>
+<p>
+    <a href="add">新增</a>
+</p>
+<script>
+    var items = document.querySelectorAll(".del");
+    //console.log()
+    for(var i = 0;i<items.length;i++){
+        items[i].onclick = function () {
+            return confirm("你確定要刪除嗎?");
+        }
+    }
+</script>
 </body>
 </html>

@@ -17,10 +17,10 @@ public class UserDAO implements IUserDAO {
     private static List<User> users = new ArrayList<User>();
     static {
         users.add(new User(1,"小王","台南","095595995"));
-        users.add(new User(1,"小張","台北","098858995"));
-        users.add(new User(1,"小亮","台中","095475595"));
-        users.add(new User(1,"小立","台東","095752572"));
-        users.add(new User(1,"小高","新竹","099645777"));
+        users.add(new User(2,"小張","台北","098858995"));
+        users.add(new User(3,"小亮","台中","095475595"));
+        users.add(new User(4,"小立","台東","095752572"));
+        users.add(new User(5,"小高","新竹","099645777"));
     }
 
     /**
@@ -41,6 +41,9 @@ public class UserDAO implements IUserDAO {
     }
 
     public boolean add(User user){
+        if(user.getId()<=0){
+            user.setId(users.get(users.size()-1).getId()+1);
+        }
         users.add(user);
         return true;
     }
